@@ -1,83 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joyboy WA Web HD</title>
+<title>WhatsApp | Luffy Premium HD</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter;background:#111b21;color:#e9edef;display:flex;height:100vh;overflow:hidden}
-.side{width:30%;min-width:360px;background:#111b21;border-right:1px solid #222d34;display:flex;flex-direction:column}
-.side-head{background:#202c33;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-.side-head b{font-size:19px}.side-search{padding:8px 12px;background:#111b21}.side-search input{width:100%;background:#202c33;border:none;padding:10px 12px;border-radius:8px;color:#fff;outline:none}
-.chat-list{flex:1;overflow-y:auto}
-.chat{display:flex;gap:12px;padding:12px 16px;cursor:pointer;border-bottom:1px solid #222d34}.chat:hover{background:#202c33}.chat.active{background:#2a3942}
-.chat.av{width:49px;height:49px;border-radius:50%;background:linear-gradient(135deg,#f5c65c,#d8a23a);display:grid;place-items:center;color:#000;font-weight:800;flex-shrink:0}
-.chat.name{font-weight:500;font-size:17px}.chat.last{font-size:13px;color:#8696a0;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
-.main{flex:1;background:#0b141a;position:relative;display:flex;flex-direction:column}
-.main-head{background:#202c33;padding:10px 16px;display:flex;gap:12px;align-items:center;border-left:1px solid #222d34}
-.main-body{flex:1;display:grid;place-items:center;background:radial-gradient(#0b141a,#111b21);position:relative;overflow:hidden;padding:20px}
-.wa-bg{position:absolute;inset:0;opacity:.06;background-image:url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')}
-.card{background:#202c33;border-radius:12px;padding:28px;max-width:520px;width:100%;position:relative;z-index:2;box-shadow:0 4px 20px rgba(0,0,0,.4);text-align:center}
-.card h2{font-size:22px;margin-bottom:8px}.card p{color:#8696a0;font-size:13px;line-height:1.5}
-.drop{margin-top:20px;border:2px dashed #2a3942;border-radius:12px;padding:30px;background:#111b21;cursor:pointer}
-.drop:hover{border-color:#25d366}
-.drop b{color:#25d366}
-.preview{margin-top:16px;display:none}.media{width:100%;max-height:420px;border-radius:12px;object-fit:contain;background:#000}
-.btns{display:flex;gap:10px;margin-top:14px}.btn{flex:1;padding:12px;border-radius:8px;border:none;font-weight:700;cursor:pointer}
-.btn1{background:#202c33;color:#fff;border:1px solid #2a3942}.btn2{background:#25d366;color:#111b21}
-.hint{margin-top:12px;background:#182533;border:1px solid #2a3942;padding:10px;border-radius:8px;font-size:11px;color:#8696a0;text-align:left;line-height:1.6}
-.status-ring{width:100%;height:4px;background:linear-gradient(90deg,#25d366,#f5c65c);border-radius:999px;margin-top:16px}
-@media(max-width:800px){.side{display:none}.main{width:100%}}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Inter,Helvetica,Arial,sans-serif;background:#111b21;height:100vh;display:flex;overflow:hidden;color:#e9edef}
+.side{width:30%;min-width:410px;background:#111b21;border-right:1px solid #222d34;display:flex;flex-direction:column}
+.s-head{background:#202c33;height:59px;padding:0 16px;display:flex;align-items:center;justify-content:space-between}
+.s-head.prof{display:flex;gap:10px;align-items:center}.s-head.prof img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #F5C66A}
+.badge{width:18px;height:18px;background:#1DA1F2;border-radius:50%;display:grid;place-items:center;font-size:11px;color:#fff;margin-left:-14px;margin-top:18px;border:2px solid #202c33}
+.s-search{padding:7px 12px;background:#111b21;border-bottom:1px solid #222d34}.s-search div{background:#202c33;border-radius:8px;display:flex;align-items:center;padding:9px 12px;gap:18px}
+.s-search input{background:transparent;border:none;color:#fff;outline:none;width:100%;font-size:14px}
+.filters{display:flex;gap:8px;padding:8px 12px}.fil{padding:6px 12px;border-radius:20px;background:#182533;color:#8696a0;font-size:12px;border:none;cursor:pointer}.fil.active{background:linear-gradient(135deg,#F5C66A,#D8A23A);color:#000;font-weight:700}
+.prem-card{margin:8px 12px;background:linear-gradient(135deg,#1E2A33,#12121A);border:1px solid rgba(245,198,106,.35);border-radius:12px;padding:12px;display:flex;gap:12px;align-items:center;box-shadow:0 0 20px rgba(245,198,106,.12)}
+.prem-card img{width:52px;height:52px;border-radius:50%;border:2px solid #F5C66A;object-fit:cover}
+.prem-tag{font-size:9px;background:linear-gradient(135deg,#F5C66A,#D8A23A);color:#000;padding:3px 7px;border-radius:999px;font-weight:800}
+.chats{flex:1;overflow-y:auto}
+.c{display:flex;gap:12px;padding:12px 12px;cursor:pointer}.c:hover{background:#202c33}.c.active{background:#2a3942;border-left:3px solid #F5C66A}
+.c img{width:49px;height:49px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.c.info{flex:1;min-width:0;border-bottom:1px solid #222d34;padding-bottom:12px}
+.c.top{display:flex;justify-content:space-between}.c.name{font-size:17px;display:flex;align-items:center;gap:6px}.c.time{font-size:12px;color:#8696a0}.c.last{font-size:13px;color:#8696a0;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.main{flex:1;display:flex;flex-direction:column;background:#0b141a}
+.m-head{background:#202c33;height:59px;padding:0 16px;display:flex;align-items:center;gap:12px;border-left:1px solid #222d34}
+.m-head img{width:40px;height:40px;border-radius:50%;border:2px solid #F5C66A;object-fit:cover}
+.m-body{flex:1;position:relative;display:grid;place-items:center;padding:20px;background:#0b141a}
+.wa-doodle{position:absolute;inset:0;opacity:.05;background-image:url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')}
+.glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(245,198,106,.15),transparent 70%);top:10%;left:50%;transform:translateX(-50%);filter:blur(30px);pointer-events:none}
+.box{position:relative;z-index:2;background:#202c33;border-radius:12px;width:100%;max-width:520px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.6);border:1px solid #2a3942}
+.box-head{padding:16px 20px;border-bottom:1px solid #222d34;display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,#1E2A33,#202c33)}
+.box-head img{width:44px;height:44px;border-radius:50%;border:2px solid #F5C66A;object-fit:cover}
+.box-content{padding:24px;text-align:center;background:#202c33}
+.drop{border:1.5px dashed #2a3942;border-radius:12px;padding:30px;background:#111b21;cursor:pointer;margin-top:16px;transition:.2s}.drop:hover{border-color:#F5C66A;background:#182533;transform:translateY(-2px)}
+.typing{display:flex;gap:4px;align-items:center;margin-top:14px;color:#8696a0;font-size:12px;justify-content:center}.dot{width:6px;height:6px;background:#F5C66A;border-radius:50%;animation:bounce 1.4s infinite}.dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+.media{width:100%;max-height:400px;border-radius:12px;object-fit:contain;background:#000;margin-top:16px;display:none}
+.btns{display:flex;gap:8px;margin-top:16px}.b{flex:1;padding:12px;border-radius:8px;border:none;font-weight:700;cursor:pointer;font-size:14px}.b1{background:transparent;color:#e9edef;border:1px solid #2a3942}.b2{background:linear-gradient(135deg,#F5C66A,#D8A23A);color:#111b21;box-shadow:0 8px 20px rgba(245,198,106,.3)}
+.viewer{margin-top:12px;display:flex;align-items:center;gap:6px;justify-content:center;color:#8696a0;font-size:11px}
 canvas{display:none}
+@media(max-width:900px){.side{display:none}.main{width:100%}}
 </style>
 </head>
 <body>
 <div class="side">
-<div class="side-head"><b>WhatsApp</b><span>⋯</span></div>
-<div class="side-search"><input placeholder="Cari atau mulai chat baru"></div>
-<div class="chat-list">
-<div class="chat active"><div class="av">JB</div><div><div class="name">Joyboy HD Status</div><div class="last">📲 Klik untuk upload HD...</div></div></div>
-<div class="chat"><div class="av" style="background:#25d366">HD</div><div><div class="name">HD Uploader PRO</div><div class="last">File tetap 1080x1920 jernih</div></div></div>
-<div class="chat"><div class="av" style="background:#54656f;color:#fff">WA</div><div><div class="name">Status Saya</div><div class="last">Ketuk untuk melihat pembaruan status</div></div></div>
+<div class="s-head"><div class="prof"><img src="luffy.jpg"><div class="badge">✓</div><b style="font-size:18px;margin-left:6px">WhatsApp <span style="color:#F5C66A;font-size:11px;background:rgba(245,198,106,.15);border:1px solid rgba(245,198,106,.3);padding:2px 6px;border-radius:999px;margin-left:6px">PREMIUM</span></b></div><div style="opacity:.6">⋯</div></div>
+<div class="s-search"><div>🔍<input placeholder="Cari atau mulai chat baru"></div></div>
+<div class="filters"><button class="fil active">Semua</button><button class="fil">Belum dibaca</button><button class="fil">Grup</button><button class="fil">Premium</button></div>
+
+<div class="prem-card"><img src="luffy.jpg"><div style="flex:1"><div style="font-weight:700;display:flex;align-items:center;gap:6px">Monkey D. Luffy <span class="prem-tag">PREMIUM ✓</span></div><div style="font-size:11px;color:#8696a0">Owner • Joyboy FPS • Straw Hat Captain</div><div style="font-size:11px;color:#F5C66A;margin-top:3px">⭐ 4.9 • 12.4K user • Super Premium</div></div></div>
+
+<div class="chats">
+<div class="c active"><img src="luffy.jpg"><div class="info"><div class="top"><div class="name">Luffy • HD Status <span class="prem-tag">HD</span></div><div class="time">sekarang</div></div><div class="last"><span style="color:#25d366">✓✓</span> <span style="color:#F5C66A">Premium:</span> Klik untuk upload HD tanpa pecah...</div></div></div>
+<div class="c"><img src="luffy.jpg" style="filter:grayscale(.3)"><div class="info"><div class="top"><div class="name">Status Saya</div><div class="time">10:20</div></div><div class="last">Ketuk untuk melihat pembaruan status premium</div></div></div>
 </div>
 </div>
 
 <div class="main">
-<div class="main-head"><div class="av" style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f5c65c,#d8a23a);display:grid;place-items:center;color:#000;font-weight:800">JB</div><div><div style="font-weight:600">Joyboy HD Status</div><div style="font-size:12px;color:#8696a0">online • HD Uploader</div></div></div>
-<div class="main-body">
-<div class="wa-bg"></div>
-<div class="card">
-<h2>📲 WA Web HD Uploader</h2>
-<p>Upload persis kayak WA Web, tapi <b style="color:#25d366">100% HD tanpa kompres</b>. Tampilan WA Web asli.</p>
+<div class="m-head"><img src="luffy.jpg"><div><div style="font-weight:600;display:flex;align-items:center;gap:6px">Luffy • Premium Owner <span class="prem-tag">PREMIUM</span></div><div style="font-size:12px;color:#8696a0;display:flex;align-items:center;gap:6px"><span id="typingText">online</span> • <span style="color:#F5C66A">enkripsi HD premium</span></div></div><div style="margin-left:auto;display:flex;gap:18px;font-size:20px;opacity:.7">📹 📞 🔍</div></div>
+
+<div class="m-body">
+<div class="wa-doodle"></div><div class="glow"></div>
+<div class="box">
+<div class="box-head"><img src="luffy.jpg"><div style="text-align:left"><div style="font-weight:700;display:flex;align-items:center;gap:6px">Luffy Premium HD <span class="prem-tag">LIVE HD</span></div><div style="font-size:11px;color:#8696a0">Gomu Gomu no Premium • 1080x1920 • Super Premium</div></div><div style="margin-left:auto;background:#202c33;border:1px solid #F5C66A;color:#F5C66A;font-size:10px;padding:4px 8px;border-radius:999px;font-weight:800">👒 OWNER</div></div>
+
+<div class="box-content">
+<div style="font-size:16px;font-weight:700">Upload Status Super Premium HD</div>
+<div style="font-size:12px;color:#8696a0;margin-top:6px">Profile <b style="color:#F5C66A">Luffy melet</b> lu nongol dimana-mana. Hasil 100% jernih, kaya WA Business Premium!</div>
+
 <div class="drop" id="drop" onclick="document.getElementById('file').click()">
-<b>Seret foto/video ke sini atau klik</b><br><small style="color:#8696a0">JPG, PNG, MP4 • Max 100MB • 1080x1920 HD</small>
+<div style="font-size:30px">👒</div>
+<div style="margin-top:8px;font-weight:700;color:#F5C66A">Klik untuk upload foto / video</div>
+<div style="font-size:11px;color:#8696a0;margin-top:4px">JPG • PNG • MP4 • 1080x1920 HD • Super Premium</div>
 <input type="file" id="file" hidden accept="image/*,video/*">
 </div>
-<div class="preview" id="preview">
-<img id="imgPrev" class="media" style="display:none"><video id="vidPrev" class="media" style="display:none" controls playsinline></video>
-<div class="status-ring"></div>
-<div class="btns"><button class="btn btn1" onclick="resetTool()">Batal</button><button class="btn btn2" id="dlBtn">⬆ Upload ke Status HD</button></div>
-<div class="hint"><b style="color:#e9edef">✅ 100% Jernih:</b> File diproses jadi 1080x1920 HD 97% quality + sharpen filter. Pas di-share ke WA, pilih <b>Dokumen</b> biar gak pecah. Ini versi paling mirip WA Web tapi HD!</div>
+
+<img id="imgPrev" class="media"><video id="vidPrev" class="media" controls playsinline></video>
+
+<div class="typing" id="typing" style="display:none"><img src="luffy.jpg" style="width:20px;height:20px;border-radius:50%"><span>Luffy sedang memproses HD Premium</span><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+
+<div class="btns" id="btns" style="display:none"><button class="b b1" onclick="resetTool()">Batal</button><button class="b b2" id="dlBtn">👒 Bagikan Premium HD</button></div>
+
+<div class="viewer" id="viewer" style="display:none">👁️ <span id="vCount">1,247</span> orang melihat • <span style="color:#F5C66A">Premium HD 100% jernih</span> • Owner: Luffy</div>
+
+<div style="margin-top:14px;background:#182533;border:1px solid rgba(245,198,106,.2);border-radius:8px;padding:10px;text-align:left;font-size:11px;color:#8696a0;line-height:1.5">
+<span style="color:#F5C66A">💡 Super Premium:</span> File auto HD 1080x1920 + sharpen + gold filter. Setelah klik Bagikan, pilih WhatsApp > <b style="color:#e9edef">Status Saya</b>. Profile Luffy melet lu auto jadi watermark premium!
 </div>
-<canvas id="canvas"></canvas>
+</div>
 </div>
 </div>
 </div>
 
 <script>
-const fileInput=document.getElementById('file'),drop=document.getElementById('drop'),preview=document.getElementById('preview'),imgPrev=document.getElementById('imgPrev'),vidPrev=document.getElementById('vidPrev'),dlBtn=document.getElementById('dlBtn'),canvas=document.getElementById('canvas');
-let curFile,curBlob;
-drop.addEventListener('dragover',e=>{e.preventDefault();drop.style.borderColor='#25d366'});drop.addEventListener('dragleave',()=>drop.style.borderColor='#2a3942');drop.addEventListener('drop',e=>{e.preventDefault();handleFile(e.dataTransfer.files[0])});fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
-function handleFile(f){if(!f)return;curFile=f;preview.style.display='block';drop.style.display='none';if(f.type.startsWith('image/')){imgPrev.style.display='block';vidPrev.style.display='none';imgPrev.src=URL.createObjectURL(f);prepareImage()}else{imgPrev.style.display='none';vidPrev.style.display='block';vidPrev.src=URL.createObjectURL(f);curBlob=f;dlBtn.onclick=shareFile}}
-function prepareImage(){const img=new Image();img.src=imgPrev.src;img.onload=()=>{const W=1080,H=1920;canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');ctx.filter='contrast(1.08) saturate(1.12) brightness(1.02)';ctx.fillStyle='#0b141a';ctx.fillRect(0,0,W,H);let r=Math.max(W/img.width,H/img.height);ctx.drawImage(img,(W-img.width*r)/2,(H-img.height*r)/2,img.width*r,img.height*r);canvas.toBlob(b=>{curBlob=b;dlBtn.onclick=shareFile},'image/jpeg',0.97)}}
-async function shareFile(){
- if(!curBlob)return;
- const fileName=curFile.type.startsWith('image/')?'HD-STATUS.jpg':'HD-'+curFile.name;
- const file=new File([curBlob],fileName,{type:curBlob.type});
- if(navigator.canShare && navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'HD Status'});return}catch(e){}}
- const a=document.createElement('a');a.href=URL.createObjectURL(curBlob);a.download=fileName;a.click();
-}
-function resetTool(){preview.style.display='none';drop.style.display='block';fileInput.value='';drop.style.borderColor='#2a3942'}
+const fileInput=document.getElementById('file'),drop=document.getElementById('drop'),imgPrev=document.getElementById('imgPrev'),vidPrev=document.getElementById('vidPrev'),dlBtn=document.getElementById('dlBtn'),btns=document.getElementById('btns'),typing=document.getElementById('typing'),viewer=document.getElementById('viewer'),typingText=document.getElementById('typingText');
+let curFile,curBlob;const canvas=document.createElement('canvas');
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.style.borderColor='#F5C66A'});drop.addEventListener('dragleave',()=>drop.style.borderColor='#2a3942');drop.addEventListener('drop',e=>{e.preventDefault();handleFile(e.dataTransfer.files[0])});fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
+function handleFile(f){if(!f)return;curFile=f;typing.style.display='flex';typingText.textContent='mengetik...';setTimeout(()=>{typing.style.display='none';typingText.textContent='online • Premium HD';showPreview(f)},1300)}
+function showPreview(f){if(f.type.startsWith('image/')){imgPrev.style.display='block';vidPrev.style.display='none';imgPrev.src=URL.createObjectURL(f);prepareImage()}else{imgPrev.style.display='none';vidPrev.style.display='block';vidPrev.src=URL.createObjectURL(f);curBlob=f;btns.style.display='flex';viewer.style.display='flex';dlBtn.onclick=shareFile}drop.style.display='none'}
+function prepareImage(){const img=new Image();img.src=imgPrev.src;img.onload=()=>{const W=1080,H=1920;canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');ctx.filter='contrast(1.12) saturate(1.15) brightness(1.02)';ctx.fillStyle='#0b141a';ctx.fillRect(0,0,W,H);let r=Math.max(W/img.width,H/img.height);ctx.drawImage(img,(W-img.width*r)/2,(H-img.height*r)/2,img.width*r,img.height*r);canvas.toBlob(b=>{curBlob=b;btns.style.display='flex';viewer.style.display='flex';document.getElementById('vCount').textContent=Math.floor(1200+Math.random()*400).toLocaleString();dlBtn.onclick=shareFile},'image/jpeg',0.97)}}
+async function shareFile(){if(!curBlob)return;const name=curFile.type.startsWith('image/')?'LUFFY-PREMIUM-HD.jpg':'LUFFY-PREMIUM-HD-'+curFile.name;const file=new File([curBlob],name,{type:curBlob.type});if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'Luffy Premium HD'});return}catch(e){}}const a=document.createElement('a');a.href=URL.createObjectURL(curBlob);a.download=name;a.click()}
+function resetTool(){drop.style.display='block';imgPrev.style.display='none';vidPrev.style.display='none';btns.style.display='none';viewer.style.display='none';fileInput.value='';drop.style.borderColor='#2a3942'}
 </script>
 </body>
-</html>
+                                                                                                           </html>
