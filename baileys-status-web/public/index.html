@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>WhatsApp Status HD</title>
+
+  <link
+    rel="stylesheet"
+    href="/style.css"
+  >
+</head>
+
+<body>
+
+  <main class="container">
+
+    <section class="card">
+
+      <h1>WhatsApp Status</h1>
+
+      <p class="subtitle">
+        Upload foto atau video ke WhatsApp Status
+      </p>
+
+      <div
+        id="connection"
+        class="connection disconnected"
+      >
+        Memeriksa koneksi...
+      </div>
+
+      <div
+        id="qrContainer"
+        class="qr-container hidden"
+      >
+
+        <h2>Scan QR WhatsApp</h2>
+
+        <p>
+          Buka WhatsApp → Perangkat tertaut →
+          Tautkan perangkat.
+        </p>
+
+        <img
+          id="qrImage"
+          alt="QR WhatsApp"
+        >
+
+      </div>
+
+      <form id="uploadForm">
+
+        <label
+          for="media"
+          class="file-label"
+        >
+          Pilih Foto / Video
+        </label>
+
+        <input
+          id="media"
+          name="media"
+          type="file"
+          accept="image/*,video/*"
+          required
+        >
+
+        <div
+          id="previewContainer"
+          class="preview hidden"
+        >
+          <img
+            id="imagePreview"
+            class="hidden"
+            alt="Preview"
+          >
+
+          <video
+            id="videoPreview"
+            class="hidden"
+            controls
+          ></video>
+        </div>
+
+        <label for="caption">
+          Caption
+        </label>
+
+        <textarea
+          id="caption"
+          name="caption"
+          maxlength="500"
+          placeholder="Tulis caption..."
+        ></textarea>
+
+        <button
+          id="uploadButton"
+          type="submit"
+        >
+          Upload ke Status
+        </button>
+
+      </form>
+
+      <div
+        id="message"
+        class="message"
+      ></div>
+
+    </section>
+
+  </main>
+
+  <script src="/app.js"></script>
+
+</body>
+
+</html>
