@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Status WhatsApp HD</title>
+  <style>
+    :root { font-family: Inter, system-ui, Arial, sans-serif; color-scheme: light; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; background: #f5f7f6;
+      display: grid; place-items: center; padding: 20px;
+    }
+    .card {
+      width: min(100%, 480px); background: #fff; border-radius: 24px;
+      padding: 22px; box-shadow: 0 12px 40px rgba(0,0,0,.08);
+    }
+    h1 { margin: 0 0 6px; font-size: 25px; }
+    .muted { color: #687076; font-size: 14px; }
+    .status {
+      margin: 18px 0; padding: 12px 14px; border-radius: 14px;
+      background: #f2f4f3; font-size: 14px;
+    }
+    .dot {
+      display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+      background: #aaa; margin-right: 7px;
+    }
+    .dot.on { background: #19a463; }
+    .qr {
+      display: grid; place-items: center; min-height: 340px;
+      border: 1px dashed #cfd5d2; border-radius: 18px; padding: 14px;
+      margin-bottom: 18px;
+    }
+    .qr img { width: min(320px, 100%); height: auto; border-radius: 10px; }
+    .upload {
+      border: 2px dashed #cfd5d2; border-radius: 18px; padding: 30px 18px;
+      text-align: center; cursor: pointer; display: block;
+    }
+    .upload:hover { background: #fafcfb; }
+    input[type=file] { display:none; }
+    input[type=text] {
+      width:100%; padding:13px 14px; border:1px solid #d8ddda;
+      border-radius:12px; margin-top:14px; font-size:15px;
+    }
+    .preview {
+      width:100%; max-height:520px; object-fit:contain; border-radius:16px;
+      margin-top:16px; background:#111; display:none;
+    }
+    button {
+      width:100%; border:0; border-radius:13px; padding:14px; margin-top:14px;
+      background:#19a463; color:#fff; font-size:16px; font-weight:700;
+      cursor:pointer;
+    }
+    button:disabled { opacity:.5; cursor:not-allowed; }
+    button.secondary { background:#eef2ef; color:#26332d; }
+    progress { width:100%; margin-top:16px; display:none; }
+    #msg { margin-top:12px; text-align:center; font-size:14px; min-height:20px; }
+    .small { font-size:12px; color:#737b77; margin-top:12px; line-height:1.45; }
+    .hidden { display:none !important; }
+  </style>
+</head>
+<body>
+<main class="card">
+  <h1>Status WhatsApp HD</h1>
+  <div class="muted">Upload dari website, lalu kirim ke Status WhatsApp yang terhubung.</div>
+
+  <div id="connection" class="status">
+    <span id="dot" class="dot"></span>
+    <span id="connectionText">Memeriksa koneksi...</span>
+  </div>
+
+  <section id="qrSection">
+    <div class="qr">
+      <div id="qrPlaceholder" class="muted">Menunggu QR dari server...</div>
+      <img id="qrImage" class="hidden" alt="QR WhatsApp">
+    </div>
+    <div class="muted">
+      Di WhatsApp: Perangkat tertaut → Tautkan perangkat → scan QR di atas.
+    </div>
+  </section>
+
+  <section id="uploadSection" class="hidden">
+    <label class="upload">
+      <input id="fileInput" type="file" accept="image/*,video/*">
+      <strong>Pilih foto atau video</strong><br>
+      <span class="muted">File tidak dikompres oleh browser.</span>
+    </label>
+
+    <img id="imagePreview" class="preview" alt="Preview">
+
+    <video id="videoPreview" class="preview" controls playsinline></video>
+
+    <input id="caption" type="text" maxlength="500" placeholder="Caption (opsional)">
+
+    <button id="sendButton" disabled>Kirim ke Status WhatsApp</button>
+    <progress id="progress" value="0" max="100"></progress>
+    <div id="msg"></div>
+
+    <button id="logoutButton" class="secondary">Putuskan akun</button>
+  </section>
+
+  <div class="small">
+    Catatan: website menjaga file asli selama upload, tetapi WhatsApp dapat melakukan
+    pemrosesan/transcoding sendiri. Jangan mengunggah konten yang bukan milikmu atau
+    yang tidak kamu berhak bagikan.
+  </div>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+
+const fileInput = $("fileInput");
+const imagePreview = $("imagePreview");
+const videoPreview = $("videoPreview");
+const sendButton = $("sendButton");
+const progress = $("progress");
+const msg = $("msg");
+const uploadSection = $("uploadSection");
+const qrSection = $("qrSection");
+const qrImage = $("qrImage");
+const qrPlaceholder = $("qrPlaceholder");
+const connectionText = $("connectionText");
+const dot = $("dot");
+
+let selectedFile = null;
+
+function setMessage(text, ok = false) {
+  msg.textContent = text;
+  msg.style.color = ok ? "#137a49" : "#555";
+}
+
+async function refresh() {
+  try {
+    const s = await fetch("/api/status").then(r => r.json());
+
+    if (s.connected) {
+      dot.classList.add("on");
+      connectionText.textContent = "WhatsApp terhubung" + (s.number ? ` • ${s.number}` : "");
+      uploadSection.classList.remove("hidden");
+      qrSection.classList.add("hidden");
+      return;
+    }
+
+    dot.classList.remove("on");
+    connectionText.textContent = "WhatsApp belum terhubung";
+    uploadSection.classList.add("hidden");
+    qrSection.classList.remove("hidden");
+
+    const q = await fetch("/api/qr").then(r => r.json());
+
+    if (q.qr) {
+      qrImage.src = q.qr;
+      qrImage.classList.remove("hidden");
+      qrPlaceholder.classList.add("hidden");
+    } else {
+      qrImage.classList.add("hidden");
+      qrPlaceholder.classList.remove("hidden");
+      qrPlaceholder.textContent =
+        q.state === "starting" ? "Menyiapkan koneksi..." : "Menunggu QR...";
+    }
+  } catch {
+    connectionText.textContent = "Server tidak dapat dihubungi";
+  }
+}
+
+fileInput.addEventListener("change", () => {
+  selectedFile = fileInput.files[0] || null;
+  sendButton.disabled = !selectedFile;
+
+  imagePreview.style.display = "none";
+  videoPreview.style.display = "none";
+
+  if (!selectedFile) return;
+
+  const url = URL.createObjectURL(selectedFile);
+
+  if (selectedFile.type.startsWith("image/")) {
+    imagePreview.src = url;
+    imagePreview.style.display = "block";
+  } else if (selectedFile.type.startsWith("video/")) {
+    videoPreview.src = url;
+    videoPreview.style.display = "block";
+  }
+
+  setMessage(`${selectedFile.name} • ${(selectedFile.size / 1024 / 1024).toFixed(2)} MB`);
+});
+
+sendButton.addEventListener("click", () => {
+  if (!selectedFile) return;
+
+  const form = new FormData();
+  form.append("media", selectedFile);
+  form.append("caption", $("caption").value);
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "/api/upload-status");
+
+  progress.style.display = "block";
+  progress.value = 0;
+  sendButton.disabled = true;
+  setMessage("Mengunggah...");
+
+  xhr.upload.onprogress = (e) => {
+    if (e.lengthComputable) {
+      progress.value = Math.round(e.loaded / e.total * 100);
+    }
+  };
+
+  xhr.onload = () => {
+    sendButton.disabled = false;
+
+    let data = {};
+    try { data = JSON.parse(xhr.responseText); } catch {}
+
+    if (xhr.status >= 200 && xhr.status < 300 && data.ok) {
+      setMessage("Berhasil dikirim ke Status WhatsApp.", true);
+      fileInput.value = "";
+      selectedFile = null;
+      sendButton.disabled = true;
+    } else {
+      setMessage(data.error || "Gagal mengirim status.");
+    }
+  };
+
+  xhr.onerror = () => {
+    sendButton.disabled = false;
+    setMessage("Koneksi ke server gagal.");
+  };
+
+  xhr.send(form);
+});
+
+$("logoutButton").addEventListener("click", async () => {
+  if (!confirm("Putuskan akun WhatsApp dari server?")) return;
+
+  await fetch("/api/logout", { method: "POST" });
+  setMessage("Akun diputuskan.");
+  setTimeout(refresh, 1000);
+});
+
+refresh();
+setInterval(refresh, 2500);
+</script>
+</body>
+</html>
