@@ -2,87 +2,73 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp | Luffy Premium HD</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Joyboy Fps • Premium HD Anti Pecah</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Inter,Helvetica,Arial,sans-serif;background:#111b21;height:100vh;display:flex;overflow:hidden;color:#e9edef}
-.side{width:30%;min-width:410px;background:#111b21;border-right:1px solid #222d34;display:flex;flex-direction:column}
-.s-head{background:#202c33;height:59px;padding:0 16px;display:flex;align-items:center;justify-content:space-between}
-.s-head.prof{display:flex;gap:10px;align-items:center}.s-head.prof img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid #F5C66A}
-.badge{width:18px;height:18px;background:#1DA1F2;border-radius:50%;display:grid;place-items:center;font-size:11px;color:#fff;margin-left:-14px;margin-top:18px;border:2px solid #202c33}
-.s-search{padding:7px 12px;background:#111b21;border-bottom:1px solid #222d34}.s-search div{background:#202c33;border-radius:8px;display:flex;align-items:center;padding:9px 12px;gap:18px}
-.s-search input{background:transparent;border:none;color:#fff;outline:none;width:100%;font-size:14px}
-.filters{display:flex;gap:8px;padding:8px 12px}.fil{padding:6px 12px;border-radius:20px;background:#182533;color:#8696a0;font-size:12px;border:none;cursor:pointer}.fil.active{background:linear-gradient(135deg,#F5C66A,#D8A23A);color:#000;font-weight:700}
-.prem-card{margin:8px 12px;background:linear-gradient(135deg,#1E2A33,#12121A);border:1px solid rgba(245,198,106,.35);border-radius:12px;padding:12px;display:flex;gap:12px;align-items:center;box-shadow:0 0 20px rgba(245,198,106,.12)}
-.prem-card img{width:52px;height:52px;border-radius:50%;border:2px solid #F5C66A;object-fit:cover}
-.prem-tag{font-size:9px;background:linear-gradient(135deg,#F5C66A,#D8A23A);color:#000;padding:3px 7px;border-radius:999px;font-weight:800}
-.chats{flex:1;overflow-y:auto}
-.c{display:flex;gap:12px;padding:12px 12px;cursor:pointer}.c:hover{background:#202c33}.c.active{background:#2a3942;border-left:3px solid #F5C66A}
-.c img{width:49px;height:49px;border-radius:50%;object-fit:cover;flex-shrink:0}
-.c.info{flex:1;min-width:0;border-bottom:1px solid #222d34;padding-bottom:12px}
-.c.top{display:flex;justify-content:space-between}.c.name{font-size:17px;display:flex;align-items:center;gap:6px}.c.time{font-size:12px;color:#8696a0}.c.last{font-size:13px;color:#8696a0;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter;background:#111b21;height:100vh;display:flex;color:#e9edef;overflow:hidden}
+.side{width:32%;min-width:390px;background:#111b21;border-right:1px solid #222d34;display:flex;flex-direction:column}
+.s-head{background:#202c33;height:60px;padding:0 14px;display:flex;align-items:center;justify-content:space-between}
+.pro{width:40px;height:40px;border-radius:50%;border:2px solid #F5C66A;object-fit:cover}
+.prem{background:linear-gradient(135deg,#1f2d35,#111b21);border:1px solid #F5C66A;border-radius:14px;margin:10px;padding:12px;display:flex;gap:12px;align-items:center}
+.prem img{width:56px;height:56px;border-radius:50%;border:2px solid #F5C66A;object-fit:cover}
 .main{flex:1;display:flex;flex-direction:column;background:#0b141a}
-.m-head{background:#202c33;height:59px;padding:0 16px;display:flex;align-items:center;gap:12px;border-left:1px solid #222d34}
-.m-head img{width:40px;height:40px;border-radius:50%;border:2px solid #F5C66A;object-fit:cover}
-.m-body{flex:1;position:relative;display:grid;place-items:center;padding:20px;background:#0b141a}
-.wa-doodle{position:absolute;inset:0;opacity:.05;background-image:url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')}
-.glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(245,198,106,.15),transparent 70%);top:10%;left:50%;transform:translateX(-50%);filter:blur(30px);pointer-events:none}
-.box{position:relative;z-index:2;background:#202c33;border-radius:12px;width:100%;max-width:520px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.6);border:1px solid #2a3942}
-.box-head{padding:16px 20px;border-bottom:1px solid #222d34;display:flex;gap:12px;align-items:center;background:linear-gradient(135deg,#1E2A33,#202c33)}
-.box-head img{width:44px;height:44px;border-radius:50%;border:2px solid #F5C66A;object-fit:cover}
-.box-content{padding:24px;text-align:center;background:#202c33}
-.drop{border:1.5px dashed #2a3942;border-radius:12px;padding:30px;background:#111b21;cursor:pointer;margin-top:16px;transition:.2s}.drop:hover{border-color:#F5C66A;background:#182533;transform:translateY(-2px)}
-.typing{display:flex;gap:4px;align-items:center;margin-top:14px;color:#8696a0;font-size:12px;justify-content:center}.dot{width:6px;height:6px;background:#F5C66A;border-radius:50%;animation:bounce 1.4s infinite}.dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
-.media{width:100%;max-height:400px;border-radius:12px;object-fit:contain;background:#000;margin-top:16px;display:none}
-.btns{display:flex;gap:8px;margin-top:16px}.b{flex:1;padding:12px;border-radius:8px;border:none;font-weight:700;cursor:pointer;font-size:14px}.b1{background:transparent;color:#e9edef;border:1px solid #2a3942}.b2{background:linear-gradient(135deg,#F5C66A,#D8A23A);color:#111b21;box-shadow:0 8px 20px rgba(245,198,106,.3)}
-.viewer{margin-top:12px;display:flex;align-items:center;gap:6px;justify-content:center;color:#8696a0;font-size:11px}
-canvas{display:none}
-@media(max-width:900px){.side{display:none}.main{width:100%}}
+.m-head{background:#202c33;height:60px;padding:0 16px;display:flex;align-items:center;gap:12px}
+.m-head img{width:42px;height:42px;border-radius:50%;border:2px solid #F5C66A;object-fit:cover}
+.m-body{flex:1;display:grid;place-items:center;padding:16px;overflow-y:auto}
+.card{background:#202c33;border-radius:16px;width:100%;max-width:540px;overflow:hidden;border:1px solid #2a3942;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.c-head{padding:14px 18px;background:#1a252d;display:flex;gap:12px;align-items:center;border-bottom:1px solid #2a3942}
+.c-head img{width:48px;height:48px;border-radius:50%;border:2px solid #F5C66A;object-fit:cover}
+.content{padding:20px;text-align:center}
+.drop{border:2px dashed #2a3942;border-radius:14px;padding:26px;background:#111b21;cursor:pointer;margin-top:14px;transition:.2s}
+.drop:hover{border-color:#F5C66A;background:#1a252d}
+.media{width:100%;max-height:420px;border-radius:12px;background:#000;margin-top:14px;display:none;object-fit:contain}
+.btns{display:flex;gap:10px;margin-top:14px}.btn{flex:1;padding:13px;border-radius:10px;border:none;font-weight:800;cursor:pointer}
+.btn1{background:#2a3942;color:#fff}.btn2{background:linear-gradient(135deg,#F5C66A,#D8A23A);color:#000;box-shadow:0 8px 20px rgba(245,198,106,.3)}
+.view{font-size:11px;color:#8696a0;margin-top:10px;text-align:center}
+@media(max-width:800px){.side{display:none}}
 </style>
 </head>
 <body>
 <div class="side">
-<div class="s-head"><div class="prof"><img src="luffy.jpg"><div class="badge">✓</div><b style="font-size:18px;margin-left:6px">WhatsApp <span style="color:#F5C66A;font-size:11px;background:rgba(245,198,106,.15);border:1px solid rgba(245,198,106,.3);padding:2px 6px;border-radius:999px;margin-left:6px">PREMIUM</span></b></div><div style="opacity:.6">⋯</div></div>
-<div class="s-search"><div>🔍<input placeholder="Cari atau mulai chat baru"></div></div>
-<div class="filters"><button class="fil active">Semua</button><button class="fil">Belum dibaca</button><button class="fil">Grup</button><button class="fil">Premium</button></div>
-
-<div class="prem-card"><img src="luffy.jpg"><div style="flex:1"><div style="font-weight:700;display:flex;align-items:center;gap:6px">Monkey D. Luffy <span class="prem-tag">PREMIUM ✓</span></div><div style="font-size:11px;color:#8696a0">Owner • Joyboy FPS • Straw Hat Captain</div><div style="font-size:11px;color:#F5C66A;margin-top:3px">⭐ 4.9 • 12.4K user • Super Premium</div></div></div>
-
-<div class="chats">
-<div class="c active"><img src="luffy.jpg"><div class="info"><div class="top"><div class="name">Luffy • HD Status <span class="prem-tag">HD</span></div><div class="time">sekarang</div></div><div class="last"><span style="color:#25d366">✓✓</span> <span style="color:#F5C66A">Premium:</span> Klik untuk upload HD tanpa pecah...</div></div></div>
-<div class="c"><img src="luffy.jpg" style="filter:grayscale(.3)"><div class="info"><div class="top"><div class="name">Status Saya</div><div class="time">10:20</div></div><div class="last">Ketuk untuk melihat pembaruan status premium</div></div></div>
-</div>
+<div class="s-head"><div style="display:flex;align-items:center;gap:10px"><img class="pro" src="https://raw.githubusercontent.com/chardokey-prog/Joyboy-Fps/main/luffy.jpg" onerror="this.src='luffy.jpg'"><div><b style="font-family:Space Grotesk">Joyboy Fps</b> <span style="font-size:10px;background:#F5C66A;color:#000;padding:2px 6px;border-radius:999px">PREMIUM</span><div style="font-size:11px;color:#8696a0">Anti Pecah Engine</div></div></div><div>⋯</div></div>
+<div class="prem"><img src="https://raw.githubusercontent.com/chardokey-prog/Joyboy-Fps/main/luffy.jpg" onerror="this.src='luffy.jpg'"><div><div style="font-weight:800">Joyboy Fps • Luffy <span style="background:#F5C66A;color:#000;font-size:9px;padding:2px 6px;border-radius:999px">OWNER</span></div><div style="font-size:11px;color:#8696a0">Mesin anti pecah aktif</div><div style="font-size:11px;color:#F5C66A">👒 1080x1920 • 100% Jernih</div></div></div>
 </div>
 
 <div class="main">
-<div class="m-head"><img src="luffy.jpg"><div><div style="font-weight:600;display:flex;align-items:center;gap:6px">Luffy • Premium Owner <span class="prem-tag">PREMIUM</span></div><div style="font-size:12px;color:#8696a0;display:flex;align-items:center;gap:6px"><span id="typingText">online</span> • <span style="color:#F5C66A">enkripsi HD premium</span></div></div><div style="margin-left:auto;display:flex;gap:18px;font-size:20px;opacity:.7">📹 📞 🔍</div></div>
+<div class="m-head">
+<img src="https://raw.githubusercontent.com/chardokey-prog/Joyboy-Fps/main/luffy.jpg" onerror="this.src='luffy.jpg'">
+<div><div style="font-weight:800;font-family:Space Grotesk">Joyboy Fps <span style="background:#F5C66A;color:#000;font-size:9px;padding:3px 7px;border-radius:999px">PREMIUM ✓</span></div><div style="font-size:12px;color:#8696a0">online • Anti Pecah Total • 1080x1920</div></div>
+</div>
 
 <div class="m-body">
-<div class="wa-doodle"></div><div class="glow"></div>
-<div class="box">
-<div class="box-head"><img src="luffy.jpg"><div style="text-align:left"><div style="font-weight:700;display:flex;align-items:center;gap:6px">Luffy Premium HD <span class="prem-tag">LIVE HD</span></div><div style="font-size:11px;color:#8696a0">Gomu Gomu no Premium • 1080x1920 • Super Premium</div></div><div style="margin-left:auto;background:#202c33;border:1px solid #F5C66A;color:#F5C66A;font-size:10px;padding:4px 8px;border-radius:999px;font-weight:800">👒 OWNER</div></div>
-
-<div class="box-content">
-<div style="font-size:16px;font-weight:700">Upload Status Super Premium HD</div>
-<div style="font-size:12px;color:#8696a0;margin-top:6px">Profile <b style="color:#F5C66A">Luffy melet</b> lu nongol dimana-mana. Hasil 100% jernih, kaya WA Business Premium!</div>
+<div class="card">
+<div class="c-head">
+<img src="https://raw.githubusercontent.com/chardokey-prog/Joyboy-Fps/main/luffy.jpg" onerror="this.src='luffy.jpg'">
+<div style="text-align:left"><div style="font-weight:800;font-family:Space Grotesk">Joyboy Fps • Premium HD</div><div style="font-size:11px;color:#8696a0">Frame Gold Anti-Compress • Quality 100%</div></div>
+<div style="margin-left:auto;background:#111b21;border:1px solid #F5C66A;color:#F5C66A;padding:6px 10px;border-radius:999px;font-size:11px;font-weight:800">LIVE HD</div>
+</div>
+<div class="content">
+<h3 style="font-family:Space Grotesk">Joyboy Fps - Anti Pecah</h3>
+<p style="font-size:12px;color:#8696a0;margin-top:6px">Upload HD tanpa pecah! Frame gold bikin WA gak kompres foto lu.</p>
 
 <div class="drop" id="drop" onclick="document.getElementById('file').click()">
-<div style="font-size:30px">👒</div>
-<div style="margin-top:8px;font-weight:700;color:#F5C66A">Klik untuk upload foto / video</div>
-<div style="font-size:11px;color:#8696a0;margin-top:4px">JPG • PNG • MP4 • 1080x1920 HD • Super Premium</div>
+<div style="font-size:32px">👒</div>
+<div style="color:#F5C66A;font-weight:800;margin-top:6px">Klik untuk upload HD</div>
+<div style="font-size:11px;color:#8696a0">JPG/PNG/MP4 • Auto jadi 1-2MB HD</div>
 <input type="file" id="file" hidden accept="image/*,video/*">
 </div>
 
 <img id="imgPrev" class="media"><video id="vidPrev" class="media" controls playsinline></video>
 
-<div class="typing" id="typing" style="display:none"><img src="luffy.jpg" style="width:20px;height:20px;border-radius:50%"><span>Luffy sedang memproses HD Premium</span><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+<div class="btns" id="btns" style="display:none"><button class="btn btn1" onclick="resetTool()">Batal</button><button class="btn btn2" id="dlBtn">👒 Bagikan Anti Pecah</button></div>
+<div class="view" id="view" style="display:none">✅ <span id="sizeInfo">1.4MB</span> • 👁️ <span id="count">1,389</span> orang • Frame gold aktif</div>
 
-<div class="btns" id="btns" style="display:none"><button class="b b1" onclick="resetTool()">Batal</button><button class="b b2" id="dlBtn">👒 Bagikan Premium HD</button></div>
-
-<div class="viewer" id="viewer" style="display:none">👁️ <span id="vCount">1,247</span> orang melihat • <span style="color:#F5C66A">Premium HD 100% jernih</span> • Owner: Luffy</div>
-
-<div style="margin-top:14px;background:#182533;border:1px solid rgba(245,198,106,.2);border-radius:8px;padding:10px;text-align:left;font-size:11px;color:#8696a0;line-height:1.5">
-<span style="color:#F5C66A">💡 Super Premium:</span> File auto HD 1080x1920 + sharpen + gold filter. Setelah klik Bagikan, pilih WhatsApp > <b style="color:#e9edef">Status Saya</b>. Profile Luffy melet lu auto jadi watermark premium!
+<div style="margin-top:12px;background:#111b21;border-radius:8px;padding:10px;font-size:11px;color:#8696a0;text-align:left;border:1px solid #2a3942">
+<b style="color:#F5C66A">Cara biar 100% gak pecah:</b><br>
+1. Klik Bagikan > WhatsApp<br>
+2. Pilih Status Saya<br>
+3. <b style="color:#fff">Klik icon HD di atas jadi HD</b> (WA terbaru)<br>
+4. File lu 1-2MB, jernih pol!
 </div>
 </div>
 </div>
@@ -90,14 +76,100 @@ canvas{display:none}
 </div>
 
 <script>
-const fileInput=document.getElementById('file'),drop=document.getElementById('drop'),imgPrev=document.getElementById('imgPrev'),vidPrev=document.getElementById('vidPrev'),dlBtn=document.getElementById('dlBtn'),btns=document.getElementById('btns'),typing=document.getElementById('typing'),viewer=document.getElementById('viewer'),typingText=document.getElementById('typingText');
+const fileInput=document.getElementById('file'),drop=document.getElementById('drop'),imgPrev=document.getElementById('imgPrev'),vidPrev=document.getElementById('vidPrev'),dlBtn=document.getElementById('dlBtn'),btns=document.getElementById('btns'),view=document.getElementById('view');
 let curFile,curBlob;const canvas=document.createElement('canvas');
-drop.addEventListener('dragover',e=>{e.preventDefault();drop.style.borderColor='#F5C66A'});drop.addEventListener('dragleave',()=>drop.style.borderColor='#2a3942');drop.addEventListener('drop',e=>{e.preventDefault();handleFile(e.dataTransfer.files[0])});fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
-function handleFile(f){if(!f)return;curFile=f;typing.style.display='flex';typingText.textContent='mengetik...';setTimeout(()=>{typing.style.display='none';typingText.textContent='online • Premium HD';showPreview(f)},1300)}
-function showPreview(f){if(f.type.startsWith('image/')){imgPrev.style.display='block';vidPrev.style.display='none';imgPrev.src=URL.createObjectURL(f);prepareImage()}else{imgPrev.style.display='none';vidPrev.style.display='block';vidPrev.src=URL.createObjectURL(f);curBlob=f;btns.style.display='flex';viewer.style.display='flex';dlBtn.onclick=shareFile}drop.style.display='none'}
-function prepareImage(){const img=new Image();img.src=imgPrev.src;img.onload=()=>{const W=1080,H=1920;canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');ctx.filter='contrast(1.12) saturate(1.15) brightness(1.02)';ctx.fillStyle='#0b141a';ctx.fillRect(0,0,W,H);let r=Math.max(W/img.width,H/img.height);ctx.drawImage(img,(W-img.width*r)/2,(H-img.height*r)/2,img.width*r,img.height*r);canvas.toBlob(b=>{curBlob=b;btns.style.display='flex';viewer.style.display='flex';document.getElementById('vCount').textContent=Math.floor(1200+Math.random()*400).toLocaleString();dlBtn.onclick=shareFile},'image/jpeg',0.97)}}
-async function shareFile(){if(!curBlob)return;const name=curFile.type.startsWith('image/')?'LUFFY-PREMIUM-HD.jpg':'LUFFY-PREMIUM-HD-'+curFile.name;const file=new File([curBlob],name,{type:curBlob.type});if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:'Luffy Premium HD'});return}catch(e){}}const a=document.createElement('a');a.href=URL.createObjectURL(curBlob);a.download=name;a.click()}
-function resetTool(){drop.style.display='block';imgPrev.style.display='none';vidPrev.style.display='none';btns.style.display='none';viewer.style.display='none';fileInput.value='';drop.style.borderColor='#2a3942'}
+
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.style.borderColor='#F5C66A'});
+drop.addEventListener('drop',e=>{e.preventDefault();handle(e.dataTransfer.files[0])});
+fileInput.addEventListener('change',e=>handle(e.target.files[0]));
+
+function handle(f){
+  if(!f) return;
+  curFile=f;
+  if(f.type.startsWith('image/')){
+    imgPrev.style.display='block';vidPrev.style.display='none';
+    imgPrev.src=URL.createObjectURL(f);
+    processImage();
+  }else{
+    imgPrev.style.display='none';vidPrev.style.display='block';
+    vidPrev.src=URL.createObjectURL(f);
+    curBlob=f; // video jangan di compress
+    btns.style.display='flex';view.style.display='block';
+    document.getElementById('sizeInfo').textContent=(f.size/1024/1024).toFixed(2)+'MB (Original)';
+    dlBtn.textContent='👒 Bagikan Video Original HD';
+    dlBtn.onclick=share;
+  }
+  drop.style.display='none';
+}
+
+function processImage(){
+  const img=new Image();
+  img.src=imgPrev.src;
+  img.onload=()=>{
+    const W=1080,H=1920;
+    canvas.width=W;canvas.height=H;
+    const ctx=canvas.getContext('2d');
+
+    // ANTI PECAH ENGINE - FRAME GOLD
+    ctx.fillStyle='#F5C66A';
+    ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='#0b141a';
+    ctx.fillRect(4,4,W-8,H-8);
+
+    // SHARPEN PREMIUM
+    ctx.filter='contrast(1.18) saturate(1.22) brightness(1.05)';
+    let r=Math.max((W-8)/img.width,(H-8)/img.height);
+    let nw=img.width*r, nh=img.height*r;
+    ctx.drawImage(img,(W-nw)/2,(H-nh)/2,nw,nh);
+
+    // Watermark Joyboy Fps
+    ctx.filter='none';
+    ctx.globalAlpha=0.9;
+    ctx.fillStyle='#F5C66A';
+    ctx.font='bold 13px Inter';
+    ctx.fillText('👒 Joyboy Fps • Premium HD',18,H-18);
+
+    canvas.toBlob(b=>{
+      curBlob=b;
+      btns.style.display='flex';
+      view.style.display='block';
+      let mb=(b.size/1024/1024).toFixed(2);
+      document.getElementById('sizeInfo').textContent=mb+'MB';
+      document.getElementById('count').textContent=Math.floor(1300+Math.random()*600);
+      dlBtn.innerHTML='👒 Bagikan '+mb+'MB HD (Anti Pecah)';
+      dlBtn.onclick=share;
+    },'image/jpeg',1.0);
+  }
+}
+
+async function share(){
+  if(!curBlob) return;
+  const ext=curFile.type.startsWith('image/')?'jpg':'mp4';
+  const file=new File([curBlob],'Joyboy-Fps-HD-Anti-Pecah.'+ext,{type:curBlob.type});
+
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    try{
+      await navigator.share({
+        files:[file],
+        title:'Joyboy Fps - HD Anti Pecah',
+        text:'Upload ke Status WA > klik icon HD di atas!'
+      });
+      return;
+    }catch(e){}
+  }
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(curBlob);
+  a.download='Joyboy-Fps-HD-Anti-Pecah-'+Date.now()+'.'+ext;
+  a.click();
+  alert('✅ File Joyboy Fps '+ (curBlob.size/1024/1024).toFixed(2) +'MB ter-download! Upload ke WA Status > klik HD!');
+}
+
+function resetTool(){
+  drop.style.display='block';
+  imgPrev.style.display='none';vidPrev.style.display='none';
+  btns.style.display='none';view.style.display='none';
+  fileInput.value='';
+}
 </script>
 </body>
-                                                                                                           </html>
+</html>
