@@ -3,36 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Joyboy Fps - DOMINATE THE ARENA</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<title>Joyboy FPS — Dominate The Arena</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+:root{--bg:#07070B;--card:#12121A;--gold:#F5C66A;--gold2:#D9A13E;--border:#222233;--mut:#8A8A9A}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0f;color:#fff;font-family:Inter,sans-serif}
-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:#111;border-bottom:1px solid #222;position:sticky;top:0;z-index:99}
-.logo{font-weight:700} .logo span{color:#f5c65c}
-.btn-gold{background:linear-gradient(135deg,#f5c65c,#d8a23a);color:#000;padding:10px 18px;border-radius:20px;font-weight:700;border:none}
-.hero{padding:24px 20px}
-.hero h1{font-family:'Space Grotesk';font-size:40px;line-height:0.9}
-.hero h1 .gold{color:#f5c65c;display:block;-webkit-text-stroke:1px #f5c65c;color:transparent}
-.desc{opacity:0.6;font-size:13px;margin-top:12px;line-height:1.6;max-width:340px}
-.actions{display:flex;gap:10px;margin-top:20px}
-.btn{padding:12px 18px;border-radius:10px;font-weight:700;font-size:12px;border:1px solid #333}
-.btn-p{background:#1c1c28;color:#fff}
-.btn-s{background:rgba(245,198,92,0.1);color:#f5c65c;border-color:#f5c65c}
-.visual{position:relative;width:100%;max-width:360px;aspect-ratio:1/1;margin:30px auto 0}
-.circle{position:absolute;width:88%;height:88%;left:6%;top:6%;border-radius:50%;background:radial-gradient(circle at 30% 30%,#2a2a40,#0f0f15);border:1px solid #333}
-.card{position:absolute;background:#181828;border:1px solid #333;border-radius:12px;padding:8px 12px;font-size:10px}
-.card b{color:#f5c65c;display:block;font-size:11px}
-.c1{top:5%;right:0} .c2{top:50%;left:-10px} .c3{bottom:5%;right:10%}
+body{background:radial-gradient(120% 80% at 50% -20%, #1a1a2a 0%, var(--bg) 60%);color:#fff;font-family:'Inter',sans-serif}
+header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:rgba(7,7,11,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700}
+.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:10px;display:grid;place-items:center;color:#000;font-weight:800}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;border:none;padding:10px 20px;border-radius:999px;font-weight:700;font-size:13px;box-shadow:0 0 20px rgba(245,198,106,.3)}
+.hero{max-width:1200px;margin:0 auto;padding:40px 20px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;align-items:center}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.badge{display:inline-flex;gap:8px;background:rgba(245,198,106,.1);border:1px solid rgba(245,198,106,.25);color:var(--gold);font-size:11px;padding:6px 12px;border-radius:999px}
+h1{font-family:'Space Grotesk';font-size:clamp(44px,6vw,84px);line-height:.88;margin:16px 0}
+h1.outline{color:transparent;-webkit-text-stroke:1.2px var(--gold)}
+.sub{color:var(--mut);font-size:14px;max-width:420px;line-height:1.6}
+.cta-row{display:flex;gap:12px;margin-top:22px}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;padding:14px 26px;border-radius:999px;font-weight:800;border:none}
+.btn-sec{background:rgba(255,255,255,.06);border:1px solid var(--border);color:#fff;padding:14px 22px;border-radius:999px}
+.visual{position:relative;display:grid;place-items:center;min-height:420px}
+.circle-wrap{position:relative;width:min(92vw,420px);aspect-ratio:1/1;border-radius:50%;display:grid;place-items:center}
+.circle-core{width:68%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(120% at 30% 20%, #2a2a3a, #12121a 40%, #07070B);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08), 0 0 80px rgba(0,200,255,.18)}
+.circle-ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(0,220,255,.22)}
+.circle-ring.r2{inset:-12px;border-color:rgba(245,198,106,.18)}.circle-ring.r3{inset:-26px;border:1px dashed rgba(255,255,255,.12)}
+.glow{position:absolute;inset:-30%;background:conic-gradient(from 0deg, rgba(0,220,255,.15), transparent 40%, rgba(245,198,106,.12), transparent 80%, rgba(0,220,255,.15));border-radius:50%;filter:blur(18px);animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:-10px;z-index:2;position:relative}
+.pill{display:flex;gap:10px;background:rgba(18,18,26,.9);border:1px solid var(--border);padding:10px 16px;border-radius:999px;font-size:12px}
+.tool-section{max-width:1200px;margin:50px auto;padding:0 20px}
+.tool-card{background:linear-gradient(180deg, rgba(21,21,31,.95), rgba(12,12,18,.98));border:1px solid var(--border);border-radius:28px;padding:28px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.tool-head h2{font-family:'Space Grotesk';font-size:28px}.tool-head p{color:var(--mut);font-size:13px;margin-top:4px}
+.drop{border:1.5px dashed #2e2e44;border-radius:20px;padding:36px 20px;text-align:center;background:#0F0F18;cursor:pointer;margin-top:20px}
+.drop:hover{border-color:var(--gold)}.drop b{font-family:'Space Grotesk';font-size:18px}
+.preview{margin-top:20px;display:none}.preview-media{width:100%;border-radius:18px;max-height:620px;object-fit:contain;background:#000;border:1px solid var(--border)}
+.actions{display:flex;gap:12px;margin-top:16px}.btn{flex:1;padding:16px;border-radius:14px;font-weight:800;border:none;cursor:pointer}
+.btn-reset{background:#1c1c29;color:#fff;border:1px solid var(--border)}.btn-hd{background:linear-gradient(135deg,#25D366,#1da851);color:#fff}
+canvas{display:none}.hint{margin-top:12px;font-size:11px;color:var(--mut);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:10px 12px;border-radius:12px;line-height:1.6}
 </style>
 </head>
 <body>
-<header><div class="logo">◈ Joyboy <span>Fps</span></div><button class="btn-gold">PLAY NOW</button></header>
+<header><div class="logo"><div class="logo-icon">JB</div> JOYBOY <span style="color:var(--gold)">FPS</span></div><button class="btn-gold">PLAY NOW</button></header>
 <div class="hero">
-<h1>DOMINATE<span class="gold">THE ARENA</span></h1>
-<div class="desc">Next-Gen Tactical FPS • 240Hz • 6ms Low Latency. Built for legends.</div>
-<div class="actions"><button class="btn btn-p">↓ Download Beta</button><button class="btn btn-s">▶ Trailer</button></div>
-<div class="visual"><div class="circle"></div><div class="card c1">LOW LATENCY<b>6ms AVG</b></div><div class="card c2">RAY TRACING<b>ON • DLSS 3.5</b></div><div class="card c3">RANKED<b>ELO 2200+</b></div></div>
+<div>
+<div class="badge">● LIVE 2.4K PLAYERS • SEASON 4</div>
+<h1>DOMINATE<br><span class="outline">THE ARENA</span></h1>
+<p class="sub">Next-Gen Tactical FPS • 240Hz • 6ms Low Latency • Ray Tracing On. Built for esports.</p>
+<div class="cta-row"><button class="btn-primary">▶ WATCH TRAILER</button><button class="btn-sec">EXPLORE →</button></div>
 </div>
+<div class="visual">
+<div class="circle-wrap"><div class="glow"></div><div class="circle-ring r3"></div><div class="circle-ring r2"></div><div class="circle-ring"></div><div class="circle-core"></div></div>
+<div class="stats">
+<div class="pill">⚡ <div><b>6ms AVG</b><br><span style="color:var(--mut)">LOW LATENCY</span></div></div>
+<div class="pill">✦ <div><b>DLSS 3.5</b><br><span style="color:var(--mut)">RAY TRACING</span></div></div>
+<div class="pill">🏆 <div><b>2200+ ELO</b><br><span style="color:var(--mut)">RANKED</span></div></div>
+</div>
+</div>
+</div>
+<div class="tool-section">
+<div class="tool-card">
+<div class="tool-head"><h2>📲 HD Status Uploader PRO</h2><p>Upload foto/video kamu, auto jadi HD 1080x1920 - siap up ke SW tanpa pecah, tanpa watermark</p></div>
+<div class="drop" id="drop" onclick="document.getElementById('file').click()"><b>Drop Foto & Video Disini</b><br><small style="color:var(--mut)">JPG, PNG, MP4, MOV • Max 100MB • 100% HD</small><div style="margin-top:14px;font-size:22px">📤</div><input type="file" id="file" hidden accept="image/*,video/*"></div>
+<div class="preview" id="preview"><img id="imgPrev" class="preview-media" style="display:none"><video id="vidPrev" class="preview-media" style="display:none" controls playsinline></video><div class="actions"><button class="btn btn-reset" onclick="resetTool()">GANTI FILE</button><button class="btn btn-hd" id="dlBtn">⬇ DOWNLOAD HD UNTUK SW</button></div><div class="hint"><b style="color:#fff">Cara Up HD:</b> Download > WhatsApp > Kirim ke chat sendiri via 📎 Dokumen (bukan Galeri) > Forward ke Status > Pilih HD.</div></div><canvas id="canvas"></canvas>
+</div>
+</div>
+<script>
+const fileInput=document.getElementById('file'),drop=document.getElementById('drop'),preview=document.getElementById('preview'),imgPrev=document.getElementById('imgPrev'),vidPrev=document.getElementById('vidPrev'),dlBtn=document.getElementById('dlBtn'),canvas=document.getElementById('canvas');
+let curFile;
+drop.addEventListener('dragover',e=>{e.preventDefault(); drop.style.borderColor='#F5C66A'});drop.addEventListener('dragleave',()=>drop.style.borderColor='#2e2e44');drop.addEventListener('drop',e=>{e.preventDefault();handleFile(e.dataTransfer.files[0])});fileInput.addEventListener('change',e=>handleFile(e.target.files[0]));
+function handleFile(f){if(!f)return;curFile=f;preview.style.display='block';drop.style.display='none';if(f.type.startsWith('image/')){imgPrev.style.display='block';vidPrev.style.display='none';imgPrev.src=URL.createObjectURL(f);dlBtn.onclick=downloadHDImage}else{imgPrev.style.display='none';vidPrev.style.display='block';vidPrev.src=URL.createObjectURL(f);dlBtn.onclick=downloadHDVideo}}
+function downloadHDImage(){const img=new Image();img.src=imgPrev.src;img.onload=()=>{const W=1080,H=1920;canvas.width=W;canvas.height=H;const ctx=canvas.getContext('2d');ctx.fillStyle='#07070B';ctx.fillRect(0,0,W,H);let ratio=Math.max(W/img.width,H/img.height);let nw=img.width*ratio,nh=img.height*ratio;ctx.drawImage(img,(W-nw)/2,(H-nh)/2,nw,nh);canvas.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='HD-STATUS-1080x1920.jpg';a.click()},'image/jpeg',0.96)}}
+function downloadHDVideo(){const a=document.createElement('a');a.href=vidPrev.src;a.download='HD-'+curFile.name;a.click()}
+function resetTool(){preview.style.display='none';drop.style.display='block';fileInput.value='';drop.style.borderColor='#2e2e44'}
+</script>
 </body>
 </html>
