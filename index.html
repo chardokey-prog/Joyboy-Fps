@@ -3,42 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JOYBOY FPS - OFFICIAL</title>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+<title>JOYBOY FPS - ONE PIECE GEAR 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#fff;font-family:'Poppins',sans-serif;min-height:100vh}
-.bg{position:fixed;inset:0;z-index:-2;background:linear-gradient(120deg,#000,#1a0a00,#5a0000,#000);background-size:400% 400%;animation:move 8s ease infinite}
-@keyframes move{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.container{max-width:420px;margin:auto;padding:18px}
-.logo{font-family:'Bangers',cursive;font-size:58px;background:linear-gradient(#ffe600,#ff2a00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 15px #ff3300);text-align:center;line-height:.9}
-.owner{font-size:11px;letter-spacing:4px;color:#ffaa66;text-align:center;margin-bottom:6px}
-.sub{text-align:center;margin-top:8px;font-size:13px;background:rgba(255,60,0,.15);border:1px solid #ff4400;display:inline-block;padding:6px 16px;border-radius:30px}
-.badge{display:block;margin:12px auto 0;width:fit-content;background:linear-gradient(90deg,#ff0000,#ffcc00);color:#000;font-weight:900;padding:6px 18px;border-radius:20px;font-size:12px}
-.card{margin-top:20px;background:rgba(20,10,10,.9);border:2px solid #ff3300;border-radius:22px;padding:18px;box-shadow:0 0 30px rgba(255,50,0,.45)}
-.upload{border:2.5px dashed #ffcc00;border-radius:16px;padding:28px 10px;text-align:center;cursor:pointer}
-.btn{width:100%;padding:15px;border:none;border-radius:14px;font-weight:900;font-size:15px;margin-top:12px}
-.btn-main{background:linear-gradient(90deg,#ff0000,#ff8800,#ffcc00);color:#000}
+body{font-family:'Poppins',sans-serif;background:#000;color:#fff;overflow-x:hidden;min-height:100vh}
+.bg{position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 30% 20%,#ff3300 0%,#1a0000 40%,#000 80%);animation:bgMove 6s ease infinite alternate}
+@keyframes bgMove{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(20deg)}}
+.luffy-bg{position:fixed;inset:0;z-index:-2;background:url('https://media.tenor.com/4iaE8A5O2BwAAAAC/luffy-gear5.gif') center/cover;opacity:.18;filter:blur(1px) brightness(1.2)}
+.particles{position:fixed;inset:0;z-index:-1}
+.p{position:absolute;width:4px;height:4px;background:#ffcc00;border-radius:50%;animation:fly 8s linear infinite}
+@keyframes fly{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) scale(1.5);opacity:0}}
+.container{max-width:430px;margin:0 auto;padding:16px}
+.header{text-align:center;padding:22px 0 10px;position:relative}
+.owner-tag{letter-spacing:5px;font-size:10px;color:#ffaa66;margin-bottom:5px}
+.logo{font-family:'Bangers',cursive;font-size:62px;line-height:.85;background:linear-gradient(180deg,#fff 0%,#ffe600 40%,#ff3300 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 20px #ff0000) drop-shadow(0 4px 0 #000);animation:shake 2s ease infinite}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-1deg)}75%{transform:rotate(1deg)}}
+.name-box{margin-top:10px;display:inline-block;background:linear-gradient(90deg,#ff0000,#ff8800);padding:8px 22px;border-radius:30px;border:2px solid #ffcc00;box-shadow:0 0 15px #ff3300;font-weight:900;letter-spacing:1px;font-size:13px}
+.name-box b{color:#ffe600}
+.badge{margin-top:10px;display:inline-block;background:#ffe600;color:#000;font-weight:900;padding:5px 18px;border-radius:20px;font-size:11px;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.card{margin-top:18px;background:rgba(10,5,5,.88);backdrop-filter:blur(10px);border:2px solid #ff3300;border-radius:24px;padding:16px;box-shadow:0 0 35px rgba(255,40,0,.5), inset 0 0 20px rgba(255,200,0,.1);position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(255,200,0,.12),transparent);animation:rot 3s linear infinite;pointer-events:none}
+@keyframes rot{to{transform:rotate(360deg)}}
+.card>*{position:relative;z-index:1}
+.hero{width:100%;height:190px;border-radius:16px;background:url('https://media.tenor.com/4iaE8A5O2BwAAAAC/luffy-gear5.gif') center 20%/cover #000;border:2px solid #ffcc00;box-shadow:0 0 18px #ff5500;position:relative;overflow:hidden}
+.hero::after{content:'👒 JOYBOY FPS • GEAR 5';position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.9));padding:12px;font-family:'Bangers';font-size:20px;letter-spacing:2px;text-align:center}
+.upload{margin-top:14px;border:2.5px dashed #ffcc00;border-radius:16px;padding:22px 10px;text-align:center;background:rgba(255,200,0,.06);cursor:pointer;transition:.2s}
+.upload:hover{background:rgba(255,200,0,.12);transform:scale(1.02)}
+.btn{width:100%;padding:15px;border:none;border-radius:14px;font-weight:900;font-size:14px;margin-top:12px;cursor:pointer}
+.btn-main{background:linear-gradient(90deg,#ff0000,#ff8800,#ffcc00);color:#000;box-shadow:0 6px 20px rgba(255,80,0,.6)}
+.footer{text-align:center;margin-top:16px;font-size:10px;color:#aa6655;letter-spacing:1px;line-height:1.6}
+.footer b{color:#ffcc00}
 </style>
 </head>
 <body>
 <div class="bg"></div>
+<div class="luffy-bg"></div>
+<div class="particles" id="particles"></div>
 <div class="container">
-<div style="text-align:center;padding:20px 0 10px">
-<div class="owner">OFFICIAL WEBSITE BY</div>
-<div class="logo">JOYBOY<br>FPS</div>
-<div class="sub">👒 OWNER: <b>JOYBOY FPS</b> • GEAR 5</div>
-<div class="badge">🔥 SUPER PREMIUM EDITION 🔥</div>
+  <div class="header">
+    <div class="owner-tag">OFFICIAL WEBSITE BY</div>
+    <div class="logo">JOYBOY<br>FPS</div>
+    <div class="name-box">OWNER: <b>JOYBOY FPS</b> 👒</div><br>
+    <div class="badge">🔥 SUPER PREMIUM GERAK • GEAR 5 🔥</div>
+  </div>
+  <div class="card">
+    <div class="hero"></div>
+    <div class="upload" onclick="document.getElementById('fileIn').click()">
+      <div style="font-size:36px">⚡👒⚡</div>
+      <div style="font-weight:900;margin-top:4px">UPLOAD VIDEO HD LU DISINI</div>
+      <div style="font-size:10px;color:#ffbb88;margin-top:3px">29 detik • Anti Kompres 37MB • Milik JOYBOY FPS</div>
+      <input type="file" id="fileIn" accept="video/*" hidden>
+      <div id="info" style="font-size:11px;margin-top:10px;color:#ffcc99"></div>
+    </div>
+    <button class="btn btn-main">⚡ GENERATE HD ULTRA - JOYBOY FPS ⚡</button>
+    <div style="text-align:center;margin-top:12px;font-size:11px">© 2026 <b style="color:#ffcc00">JOYBOY FPS</b> - Website Resmi<br>One Piece Luffy Gear 5 Edition<br>Created by JOYBOY FPS</div>
+  </div>
+  <div class="footer">POWERED BY GOMU GOMU NO MI • JOYBOY FPS<br>ANTI BANNED • 100% HD • NO QR</div>
 </div>
-<div class="card">
-<div class="upload" onclick="document.getElementById('fileIn').click()">
-<div style="font-size:50px">👒</div>
-<div style="font-weight:900">TAP UPLOAD VIDEO LU, JOYBOY</div>
-<input type="file" id="fileIn" hidden>
-</div>
-<button class="btn btn-main">⚡ GENERATE HD 37MB - JOYBOY FPS ⚡</button>
-<div style="margin-top:14px;font-size:11px;color:#ffaa88;text-align:center">© 2026 JOYBOY FPS - Website Resmi Joyboy Fps<br>OWNER: JOYBOY FPS</div>
-</div>
-</div>
+<script>
+const p=document.getElementById('particles');for(let i=0;i<35;i++){let d=document.createElement('div');d.className='p';d.style.left=Math.random()*100+'%';d.style.animationDelay=Math.random()*8+'s';d.style.animationDuration=(5+Math.random()*5)+'s';p.appendChild(d)}
+document.getElementById('fileIn').addEventListener('change',e=>{let f=e.target.files[0];if(f)document.getElementById('info').innerHTML=`📁 ${f.name}<br>💾 ${(f.size/1024/1024).toFixed(2)} MB • READY HD`});
+</script>
 </body>
 </html>
