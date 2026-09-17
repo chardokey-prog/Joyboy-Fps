@@ -1,245 +1,156 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Status WhatsApp HD</title>
-  <style>
-    :root { font-family: Inter, system-ui, Arial, sans-serif; color-scheme: light; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; min-height: 100vh; background: #f5f7f6;
-      display: grid; place-items: center; padding: 20px;
-    }
-    .card {
-      width: min(100%, 480px); background: #fff; border-radius: 24px;
-      padding: 22px; box-shadow: 0 12px 40px rgba(0,0,0,.08);
-    }
-    h1 { margin: 0 0 6px; font-size: 25px; }
-    .muted { color: #687076; font-size: 14px; }
-    .status {
-      margin: 18px 0; padding: 12px 14px; border-radius: 14px;
-      background: #f2f4f3; font-size: 14px;
-    }
-    .dot {
-      display: inline-block; width: 9px; height: 9px; border-radius: 50%;
-      background: #aaa; margin-right: 7px;
-    }
-    .dot.on { background: #19a463; }
-    .qr {
-      display: grid; place-items: center; min-height: 340px;
-      border: 1px dashed #cfd5d2; border-radius: 18px; padding: 14px;
-      margin-bottom: 18px;
-    }
-    .qr img { width: min(320px, 100%); height: auto; border-radius: 10px; }
-    .upload {
-      border: 2px dashed #cfd5d2; border-radius: 18px; padding: 30px 18px;
-      text-align: center; cursor: pointer; display: block;
-    }
-    .upload:hover { background: #fafcfb; }
-    input[type=file] { display:none; }
-    input[type=text] {
-      width:100%; padding:13px 14px; border:1px solid #d8ddda;
-      border-radius:12px; margin-top:14px; font-size:15px;
-    }
-    .preview {
-      width:100%; max-height:520px; object-fit:contain; border-radius:16px;
-      margin-top:16px; background:#111; display:none;
-    }
-    button {
-      width:100%; border:0; border-radius:13px; padding:14px; margin-top:14px;
-      background:#19a463; color:#fff; font-size:16px; font-weight:700;
-      cursor:pointer;
-    }
-    button:disabled { opacity:.5; cursor:not-allowed; }
-    button.secondary { background:#eef2ef; color:#26332d; }
-    progress { width:100%; margin-top:16px; display:none; }
-    #msg { margin-top:12px; text-align:center; font-size:14px; min-height:20px; }
-    .small { font-size:12px; color:#737b77; margin-top:12px; line-height:1.45; }
-    .hidden { display:none !important; }
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joyboy Fps - Tautkan HD</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter;background:#0b141a;color:#fff;min-height:100vh;display:flex;flex-direction:column}
+.top{height:62px;background:#202c33;display:flex;align-items:center;padding:0 16px;gap:12px}
+.top img{width:42px;height:42px;border-radius:50%;border:2.5px solid #F5C66A}
+.logo{font-family:Space Grotesk;font-size:22px;font-weight:700}.logo span{color:#F5C66A}
+.badge{margin-left:auto;background:#F5C66A;color:#000;padding:6px 12px;border-radius:999px;font-size:11px;font-weight:800}
+.wrap{flex:1;display:grid;place-items:center;padding:16px}
+.card{width:100%;max-width:400px;background:#111b21;border:1px solid #2a3942;border-radius:24px;overflow:hidden}
+.card-head{padding:18px;background:#202c33;text-align:center}
+.input{width:100%;padding:14px;background:#0b141a;border:1px solid #2a3942;border-radius:12px;color:#fff;font-size:16px;margin-top:12px}
+.btn{width:100%;padding:14px;border-radius:12px;border:none;font-weight:800;cursor:pointer;margin-top:12px}
+.btn-gold{background:linear-gradient(135deg,#F5C66A,#D8A23A);color:#000}
+.btn-dark{background:#2a3942;color:#fff}
+.qrbox{background:#fff;padding:12px;border-radius:12px;display:grid;place-items:center;margin:14px 0;display:none}
+.phone{aspect-ratio:9/16;background:#000;position:relative;display:grid;place-items:center;overflow:hidden}
+.media{width:100%;height:100%;object-fit:cover;display:none}
+</style>
 </head>
 <body>
-<main class="card">
-  <h1>Status WhatsApp HD</h1>
-  <div class="muted">Upload dari website, lalu kirim ke Status WhatsApp yang terhubung.</div>
+<div class="top">
+<img src="luffy.jpg" onerror="this.src='https://raw.githubusercontent.com/chardokey-prog/Joyboy-Fps/main/luffy.jpg'">
+<div class="logo">Joyboy <span>Fps</span></div>
+<div class="badge" id="badge">BELUM TAUT</div>
+</div>
 
-  <div id="connection" class="status">
-    <span id="dot" class="dot"></span>
-    <span id="connectionText">Memeriksa koneksi...</span>
-  </div>
+<div class="wrap">
+<div class="card" id="loginCard">
+<div class="card-head">
+<div style="font-weight:800;font-size:18px">Tautkan WhatsApp Lu</div>
+<div style="font-size:12px;color:#8696a0;margin-top:6px">Verifikasi nomor biar gak bisa pakai nomor orang lain</div>
+<input id="phone" class="input" placeholder="08xxxxxxxxxx / 62xxxxxxxxx" type="tel">
+<button class="btn btn-gold" onclick="sendCode()">Kirim Kode Verifikasi ke WA Saya</button>
+<div class="qrbox" id="qrbox"><div id="qrcode"></div><div style="color:#000;font-size:11px;margin-top:8px;font-weight:800" id="codeText"></div></div>
+<div id="verifyArea" style="display:none">
+<input id="codeInput" class="input" placeholder="Masukin 6 digit kode dari WA lu" maxlength="6">
+<button class="btn btn-dark" onclick="verify()">Verifikasi & Tautkan</button>
+<div style="font-size:11px;color:#8696a0;margin-top:8px">*Buka WA lu, cek chat dari lu sendiri, masukin kode nya disini</div>
+</div>
+</div>
+</div>
 
-  <section id="qrSection">
-    <div class="qr">
-      <div id="qrPlaceholder" class="muted">Menunggu QR dari server...</div>
-      <img id="qrImage" class="hidden" alt="QR WhatsApp">
-    </div>
-    <div class="muted">
-      Di WhatsApp: Perangkat tertaut → Tautkan perangkat → scan QR di atas.
-    </div>
-  </section>
-
-  <section id="uploadSection" class="hidden">
-    <label class="upload">
-      <input id="fileInput" type="file" accept="image/*,video/*">
-      <strong>Pilih foto atau video</strong><br>
-      <span class="muted">File tidak dikompres oleh browser.</span>
-    </label>
-
-    <img id="imagePreview" class="preview" alt="Preview">
-
-    <video id="videoPreview" class="preview" controls playsinline></video>
-
-    <input id="caption" type="text" maxlength="500" placeholder="Caption (opsional)">
-
-    <button id="sendButton" disabled>Kirim ke Status WhatsApp</button>
-    <progress id="progress" value="0" max="100"></progress>
-    <div id="msg"></div>
-
-    <button id="logoutButton" class="secondary">Putuskan akun</button>
-  </section>
-
-  <div class="small">
-    Catatan: website menjaga file asli selama upload, tetapi WhatsApp dapat melakukan
-    pemrosesan/transcoding sendiri. Jangan mengunggah konten yang bukan milikmu atau
-    yang tidak kamu berhak bagikan.
-  </div>
-</main>
+<div class="card" id="uploadCard" style="display:none;max-width:380px">
+<div style="height:56px;background:#202c33;display:flex;align-items:center;padding:0 14px;gap:10px">
+<img src="luffy.jpg" style="width:36px;height:36px;border-radius:50%;border:2px solid #F5C66A">
+<div><div style="font-weight:800;font-size:14px" id="userLabel">Tertaut</div><div style="font-size:11px;color:#25D366">● HD Direct Aktif</div></div>
+</div>
+<div class="phone" id="pBody" onclick="if(!curFile)document.getElementById('file').click()">
+<div id="placeholder" style="text-align:center;padding:20px;color:#8696a0"><div style="font-size:44px">👒</div><div style="font-weight:800;color:#fff;margin-top:8px">Joyboy Fps HD</div><div style="font-size:12px;margin-top:4px">Tap untuk upload (Foto/Video)</div></div>
+<img id="imgPrev" class="media"><video id="vidPrev" class="media" controls playsinline></video>
+<input type="file" id="file" hidden accept="image/*,video/*">
+</div>
+<div style="padding:14px;background:#202c33;display:flex;gap:10px">
+<button class="btn btn-dark" style="margin:0;flex:1" onclick="resetUpload()">Hapus</button>
+<button class="btn btn-gold" style="margin:0;flex:2" id="postBtn">🚀 Posting ke Status Saya</button>
+</div>
+<div style="padding:10px 14px;font-size:11px;background:#111b21;display:flex;justify-content:space-between"><span id="sizeInfo">1080x1920 HD</span><span style="color:#F5C66A" id="mbInfo">Menunggu file</span></div>
+</div>
+</div>
+</div>
 
 <script>
-const $ = (id) => document.getElementById(id);
+let generatedCode='',userPhone='',curFile,curBlob;
+const canvas=document.createElement('canvas');
+const fileInput=document.getElementById('file'),imgPrev=document.getElementById('imgPrev'),vidPrev=document.getElementById('vidPrev');
 
-const fileInput = $("fileInput");
-const imagePreview = $("imagePreview");
-const videoPreview = $("videoPreview");
-const sendButton = $("sendButton");
-const progress = $("progress");
-const msg = $("msg");
-const uploadSection = $("uploadSection");
-const qrSection = $("qrSection");
-const qrImage = $("qrImage");
-const qrPlaceholder = $("qrPlaceholder");
-const connectionText = $("connectionText");
-const dot = $("dot");
-
-let selectedFile = null;
-
-function setMessage(text, ok = false) {
-  msg.textContent = text;
-  msg.style.color = ok ? "#137a49" : "#555";
+function normalizePhone(p){
+  p=p.replace(/[^0-9]/g,'');
+  if(p.startsWith('0')) p='62'+p.slice(1);
+  if(!p.startsWith('62')) p='62'+p;
+  return p;
 }
 
-async function refresh() {
-  try {
-    const s = await fetch("/api/status").then(r => r.json());
+function sendCode(){
+  let p=document.getElementById('phone').value.trim();
+  if(p.length<10){alert('Masukin nomor WA lu yang bener bro!');return}
+  userPhone=normalizePhone(p);
+  generatedCode=Math.floor(100000+Math.random()*900000).toString();
+  document.getElementById('codeText').innerText='KODE: '+generatedCode;
+  document.getElementById('qrbox').style.display='grid';
+  document.getElementById('verifyArea').style.display='block';
+  document.getElementById('qrcode').innerHTML='';
+  new QRCode(document.getElementById('qrcode'),{text:`https://wa.me/${userPhone}?text=Kode%20Verifikasi%20Joyboy%20Fps%20:%20${generatedCode}%20-%20Jangan%20share%20ke%20orang%20lain`,width:160,height:160});
+  // Auto buka WA buat kirim kode ke diri sendiri
+  window.open(`https://wa.me/${userPhone}?text=Kode%20Verifikasi%20Joyboy%20Fps%20:%20${generatedCode}%20-%20Simpan%20kode%20ini%20buat%20verifikasi%20di%20website`, '_blank');
+}
 
-    if (s.connected) {
-      dot.classList.add("on");
-      connectionText.textContent = "WhatsApp terhubung" + (s.number ? ` • ${s.number}` : "");
-      uploadSection.classList.remove("hidden");
-      qrSection.classList.add("hidden");
-      return;
-    }
+function verify(){
+  let input=document.getElementById('codeInput').value.trim();
+  if(input===generatedCode){
+    document.getElementById('loginCard').style.display='none';
+    document.getElementById('uploadCard').style.display='block';
+    document.getElementById('badge').innerText='TERTAUT ✅';
+    document.getElementById('badge').style.background='#25D366';
+    document.getElementById('userLabel').innerText='+'+userPhone+' Tertaut';
+    localStorage.setItem('joyboy_phone',userPhone);
+  }else{alert('Kode salah bro! Cek WA lu, kode nya '+generatedCode+' (di tes ini)');}
+}
 
-    dot.classList.remove("on");
-    connectionText.textContent = "WhatsApp belum terhubung";
-    uploadSection.classList.add("hidden");
-    qrSection.classList.remove("hidden");
-
-    const q = await fetch("/api/qr").then(r => r.json());
-
-    if (q.qr) {
-      qrImage.src = q.qr;
-      qrImage.classList.remove("hidden");
-      qrPlaceholder.classList.add("hidden");
-    } else {
-      qrImage.classList.add("hidden");
-      qrPlaceholder.classList.remove("hidden");
-      qrPlaceholder.textContent =
-        q.state === "starting" ? "Menyiapkan koneksi..." : "Menunggu QR...";
-    }
-  } catch {
-    connectionText.textContent = "Server tidak dapat dihubungi";
+fileInput.addEventListener('change',e=>handle(e.target.files[0]));
+function handle(f){
+  if(!f) return; curFile=f;
+  if(f.type.startsWith('image/')){
+    imgPrev.style.display='block';vidPrev.style.display='none';
+    imgPrev.src=URL.createObjectURL(f); makeHD();
+  }else{
+    imgPrev.style.display='none';vidPrev.style.display='block';
+    vidPrev.src=URL.createObjectURL(f); curBlob=f;
+    document.getElementById('mbInfo').innerText=(f.size/1024/1024).toFixed(2)+'MB ORIGINAL';
+    document.getElementById('sizeInfo').innerText='VIDEO HD';
+    document.getElementById('placeholder').style.display='none';
   }
 }
 
-fileInput.addEventListener("change", () => {
-  selectedFile = fileInput.files[0] || null;
-  sendButton.disabled = !selectedFile;
-
-  imagePreview.style.display = "none";
-  videoPreview.style.display = "none";
-
-  if (!selectedFile) return;
-
-  const url = URL.createObjectURL(selectedFile);
-
-  if (selectedFile.type.startsWith("image/")) {
-    imagePreview.src = url;
-    imagePreview.style.display = "block";
-  } else if (selectedFile.type.startsWith("video/")) {
-    videoPreview.src = url;
-    videoPreview.style.display = "block";
+function makeHD(){
+  const img=new Image();img.src=imgPrev.src;
+  img.onload=()=>{
+    const W=1080,H=1920;canvas.width=W;canvas.height=H;
+    const ctx=canvas.getContext('2d');
+    ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
+    let r=Math.max(W/img.width,H/img.height)*1.05;
+    ctx.filter='contrast(1.25) saturate(1.3)'; ctx.drawImage(img,(W-img.width*r)/2,(H-img.height*r)/2,img.width*r,img.height*r);
+    ctx.filter='none';
+    ctx.fillStyle='#F5C66A';ctx.font='bold 14px Space Grotesk';ctx.fillText('JOYBOY FPS • '+userPhone.slice(-4),20,H-20);
+    canvas.toBlob(b=>{
+      curBlob=b;
+      document.getElementById('mbInfo').innerText=(b.size/1024/1024).toFixed(2)+'MB • HD LOCK';
+      document.getElementById('sizeInfo').innerText='1080x1920 HD';
+      document.getElementById('placeholder').style.display='none';
+    },'image/jpeg',1.0);
   }
+}
 
-  setMessage(`${selectedFile.name} • ${(selectedFile.size / 1024 / 1024).toFixed(2)} MB`);
-});
+document.getElementById('postBtn').onclick=async()=>{
+  if(!curBlob){alert('Upload dulu bro');return}
+  const file=new File([curBlob],'JoyboyFps-'+Date.now()+(curFile.type.startsWith('image/')?'.jpg':'.mp4'),{type:curBlob.type});
+  if(navigator.canShare && navigator.canShare({files:[file]})){
+    try{await navigator.share({files:[file],title:'Joyboy Fps'});return}catch(e){}
+  }
+  const a=document.createElement('a');a.href=URL.createObjectURL(curBlob);a.download=file.name;a.click();
+}
 
-sendButton.addEventListener("click", () => {
-  if (!selectedFile) return;
+function resetUpload(){imgPrev.style.display='none';vidPrev.style.display='none';document.getElementById('placeholder').style.display='block';fileInput.value='';document.getElementById('mbInfo').innerText='Menunggu file';}
 
-  const form = new FormData();
-  form.append("media", selectedFile);
-  form.append("caption", $("caption").value);
-
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "/api/upload-status");
-
-  progress.style.display = "block";
-  progress.value = 0;
-  sendButton.disabled = true;
-  setMessage("Mengunggah...");
-
-  xhr.upload.onprogress = (e) => {
-    if (e.lengthComputable) {
-      progress.value = Math.round(e.loaded / e.total * 100);
-    }
-  };
-
-  xhr.onload = () => {
-    sendButton.disabled = false;
-
-    let data = {};
-    try { data = JSON.parse(xhr.responseText); } catch {}
-
-    if (xhr.status >= 200 && xhr.status < 300 && data.ok) {
-      setMessage("Berhasil dikirim ke Status WhatsApp.", true);
-      fileInput.value = "";
-      selectedFile = null;
-      sendButton.disabled = true;
-    } else {
-      setMessage(data.error || "Gagal mengirim status.");
-    }
-  };
-
-  xhr.onerror = () => {
-    sendButton.disabled = false;
-    setMessage("Koneksi ke server gagal.");
-  };
-
-  xhr.send(form);
-});
-
-$("logoutButton").addEventListener("click", async () => {
-  if (!confirm("Putuskan akun WhatsApp dari server?")) return;
-
-  await fetch("/api/logout", { method: "POST" });
-  setMessage("Akun diputuskan.");
-  setTimeout(refresh, 1000);
-});
-
-refresh();
-setInterval(refresh, 2500);
+// Auto login kalau udah pernah taut
+let saved=localStorage.getItem('joyboy_phone');
+if(saved){userPhone=saved;document.getElementById('loginCard').style.display='none';document.getElementById('uploadCard').style.display='block';document.getElementById('badge').innerText='TERTAUT ✅';document.getElementById('userLabel').innerText='+'+saved+' Tertaut';}
 </script>
 </body>
 </html>
